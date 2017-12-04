@@ -1,0 +1,200 @@
+<!DOCTYPE html> 
+
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery Mobile Web App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+
+        <link rel="stylesheet" href="jquery-mobile/jquery_mobile.css" />
+
+        <script src="cordova.js"></script>
+
+        <script src="jquery-mobile/jquery-1.7.1.min.js"></script>
+        <script src="jquery-mobile/jquery.mobile-1.1.1.min.js"></script>
+        <script src="jquery-mobile/iscroll-lite.js"></script>
+        <script src="jquery-mobile/custom-1.js" type="text/javascript"></script>
+    </head> 
+    <body> 
+
+        <div data-role="page" id="page">
+            <div data-role="header">
+                <h1>Dashboard</h1>
+                <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+                    <a href="javascript:;" class="logout" data-theme="e" data-role="button" data-icon="delete" data-iconpos="right">Logout</a>
+                </div>
+                <h3 id="user_name" style="font-size:11pt"></h3>
+            </div>
+            <div data-role="content">	
+                <ul data-role="listview">
+                    <li><a href="#page2">Customer Search</a></li>
+                    <li><a href="#page4">Change Password</a></li>
+                </ul>		
+            </div>
+            <div data-role="footer">
+                <h4>Powered by Razin</h4>
+            </div>
+        </div>
+
+        <div data-role="page" id="page2">
+            <div data-role="header" data-position="inline">
+                <a href="javascript:;" data-rel="back" data-icon="back" data-iconpos="notext"></a>
+                <h1>Customer Search</h1>
+                <a href="javascript:;" class="logout" data-theme="e" data-role="button" data-icon="delete" data-iconpos="right">Logout</a>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label for="customer_code">Customer Code:</label>
+                    <input type="number" name="customer_code" id="customer_code_search" value="" placeholder="like 123" />
+                </div>
+                <button data-icon="search" id="search_customer" data-theme="b">Search</button>
+                <table data-role="table" class="ui-responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Customer Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="customer_id">Customer ID</label>
+                                    <input type="text" id="customer_id" readonly class="customer-reset">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="customer_code">Customer Code</label>
+                                    <input type="text" id="customer_code" readonly class="customer-reset">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="name">Customer Name</label>
+                                    <input type="text" id="name" readonly class="customer-reset">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="text" id="mobile" readonly class="customer-reset">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="meter_no">Meter No</label>
+                                    <input type="text" id="meter_no" readonly class="customer-reset">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="address">Address</label>
+                                    <textarea id="address" rows="4" cols="30" readonly class="customer-reset"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="image_data" style="display: none"></div>
+                <table id="meter_reading_section" data-role="table" class="ui-responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Image Section</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center"><img src="" alt="image" style="border: solid black 1px" width="200" height="200" id="image_preview"/></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><button id="capture_image" data-theme="a">Capture Image</button>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="unit">Unit</label>
+                                    <input type="number" id="unit" value="" class="customer-reset" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="pin">PIN</label>
+                                    <input type='password' id="pin" class="customer-reset"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button data-icon="check" id="submit_meter_reading" data-theme="b">Submit Meter Reading</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div data-role="footer" data-position="fixed">
+                    <h4>Powered by Razin</h4>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="page" id="page4">
+            <div data-role="header" data-position="inline">
+                <a href="javascript:;" data-rel="back" data-icon="back" data-iconpos="notext"></a>
+                <h1>Change Password</h1>
+                <a href="javascript:;" class="logout" data-theme="e" data-role="button" data-icon="delete" data-iconpos="right">Logout</a>
+            </div>
+            <div data-role="content">	
+                <table data-role="table" class="ui-responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Change Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="custpasswordomer_id">Current Password</label>
+                                    <input type="password" id="password" class="password">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="new_password">New Password</label>
+                                    <input type="password" id="new_password" class="password">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div data-role="fieldcontain">
+                                    <label for="re_new_password">Retype New Password</label>
+                                    <input type="password" id="re_new_password" class="password">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="javascript:;" data-icon="check" id="update_password" data-theme="b" data-role="button">Change Password</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Powered by Razin</h4>
+            </div>
+        </div>
+
+    </body>
